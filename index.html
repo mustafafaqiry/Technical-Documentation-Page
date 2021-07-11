@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation Page</title>
+  </head>
+  <div class="navbar">
+    <h1>The Linux Command Line</h1>
+  </div>
+  <nav id="navbar">
+    <header>The Linux Command Line</header>
+    <ul>
+      <li>
+        <a class="nav-link" href="#why_Use_The_Command_Line?"
+          >Why Use The Command Line?</a
+        >
+      </li>
+      <li>
+        <a class="nav-link" href="#What_is_The_Shell?">What Is The Shell?</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#Try_Some_Simple_Commands"
+          >Try Some Simple Commands</a
+        >
+      </li>
+      <li><a class="nav-link" href="#Navigation">Navigation</a></li>
+      <li>
+        <a class="nav-link" href="#Determining_A_File's_Type_With_file"
+          >Determining A File's Type With file</a
+        >
+      </li>
+      <li><a class="nav-link" href="#Further_Reading">Further Reading</a></li>
+      <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="why_Use_The_Command_Line?">
+      <header>Why Use The Command Line?</header>
+      <p>
+        Have you ever noticed in the movies when the “super hacker,” — you know,
+        the guy who can break into the ultra-secure military computer in under
+        thirty seconds — sits down at the computer, he never touches a mouse?
+        It's because movie makers realize that we, as human beings,
+        instinctively know the only way to really get anything done on a
+        computer is by typing on a keyboard!
+      </p>
+      <p>
+        Most computer users today are only familiar with the graphical user
+        interface (GUI) and have been taught by vendors and pundits that the
+        command line interface (CLI) is a terrifying thing of the past. This is
+        unfortunate, because a good command line interface is a marvelously
+        expressive way of communicating with a computer in much the same way the
+        written word is for human beings. It's been said that “graphical user
+        interfaces make easy tasks easy, while command line interfaces make
+        difficult tasks possible” and this is still very true today.
+      </p>
+    </section>
+    <section class="main-section" id="What_is_The_Shell?">
+      <header>What Is The Shell?</header>
+      <p>
+        When we speak of the command line, we are really referring to the shell.
+        The shell is a program that takes keyboard commands and passes them to
+        the operating system to carry out. Almost all Linux distributions supply
+        a shell program from the GNU Project called bash. The name “bash” is an
+        acronym for “Bourne Again SHell”, a reference to the fact bash is an
+        enhanced replacement for sh, the original Unix shell program written by
+        Steve Bourne.
+      </p>
+      <h2>Terminal Emulators</h2>
+      <p>
+        When using a graphical user interface, we need another program called a
+        terminal emulator to interact with the shell. If we look through our
+        desktop menus, we will probably find one. KDE uses konsole and GNOME
+        uses gnome-terminal, though it's likely called simply “terminal” on our
+        menu. There are a number of other terminal emulators available for
+        Linux, but they all basically do the same thing; give us access to the
+        shell. You will probably develop a preference for one or another based
+        on the number of bells and whistles it has.
+      </p>
+      <h2>Your First Keystrokes</h2>
+      <p>
+        So let's get started. Launch the terminal emulator! Once it comes up, we
+        should see something like this:
+      </p>
+      <code>[me@linuxbox ~]$</code>
+      <p>
+        This is called a shell prompt and it will appear whenever the shell is
+        ready to accept input. While it may vary in appearance somewhat
+        depending on the distribution, it will usually include your
+        username@machinename, followed by the current working directory (more
+        about that in a little bit) and a dollar sign. If the last character of
+        the prompt is a pound sign (“#”) rather than a dollar sign, the terminal
+        session has superuser privileges. This means either we are logged in as
+        the root user or we selected a terminal emulator that provides superuser
+        (administrative) privi-leges.
+      </p>
+    </section>
+    <section class="main-section" id="Try_Some_Simple_Commands">
+      <header>Try Some Simple Commands</header>
+      <p>
+        Now that we have learned to type, let's try a few simple commands. The
+        first one is date. This command displays the current time and date.
+      </p>
+      <code>[me@linuxbox ~]$ date Thu Oct 25 13:51:54 EDT 2007</code>
+      <p>
+        A related command is <ins>cal</ins> which, by default, displays a
+        calendar of the current month.
+      </p>
+      <code
+        >[me@linuxbox ~]$ cal October 2007 Su Mo Tu We Th Fr Sa 1 2 3 4 5 6 7 8
+        9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+        31</code
+      >
+      <h2>Ending A Terminal Session</h2>
+      <p>
+        We can end a terminal session by either closing the terminal emulator
+        window, or by entering the <ins>exit</ins> command at the shell prompt:
+      </p>
+      <code>[me@linuxbox ~]$ exit</code>
+    </section>
+    <section class="main-section" id="Navigation">
+      <header>Navigation</header>
+      <p>
+        The first thing we need to learn (besides just typing) is how to
+        navigate the file system on our Linux system. In this chapter we will
+        introduce the following commands:
+      </p>
+      <ul>
+        <li>pwd - Print name of current working directory</li>
+        <code>[me@linuxbox ~]$ pwd /home/me</code>
+        <li>cd - Change directory</li>
+        <code
+          >[me@linuxbox ~]$ cd /usr/bin [me@linuxbox bin]$ pwd /usr/bin
+          [me@linuxbox bin]$ ls ...Listing of many, many files ...</code
+        >
+        <li>ls - List directory contents</li>
+        <code
+          >[me@linuxbox ~]$ ls Desktop Documents Music Pictures Public Templates
+          Videos</code
+        >
+      </ul>
+    </section>
+    <section class="main-section" id="Determining_A_File's_Type_With_file">
+      <header>Determining A File's Type With file</header>
+      <p>
+        As we explore the system it will be useful to know what files contain.
+        To do this we will use the file command to determine a file's type. As
+        we discussed earlier, filenames in Linux are not required to reflect a
+        file's contents. While a filename like “picture.jpg” would normally be
+        expected to contain a JPEG compressed image, it is not required to in
+        Linux. We can invoke the <ins>file</ins> command this way:
+      </p>
+      <code>file filename</code>
+      <p>
+        When invoked, the <ins>file</ins> command will print a brief
+        description of the file's contents. For example:
+      </p>
+      <code
+        >[me@linuxbox ~]$ file picture.jpg picture.jpg: JPEG image data, JFIF
+        standard 1.01</code
+      >
+    </section>
+    <section class="main-section" id="Further_Reading">
+      <header>Further Reading</header>
+      <ul>
+        <li>
+          The full version of the Linux Filesystem Hierarchy Standard can be
+          found here: <br />
+          <a href="http://www.pathname.com/fhs/" target="_blank">
+            www.pathname.com/fhs/</a
+          >
+        </li>
+        <li>
+          An article about the directory structure of Unix and Unix-like
+          systems: <br />
+          <a
+            href="http://en.wikipedia.org/wiki/Unix_directory_structure"
+            target="_blank"
+            >en.wikipedia.org/wiki/Unix_directory_structure</a
+          >
+        </li>
+
+        <li>
+          A detailed description of the ASCII text format: <br />
+          <a href="http://en.wikipedia.org/wiki/ASCII" target="_blank"
+            >en.wikipedia.org/wiki/ASCII</a
+          >
+        </li>
+      </ul>
+    </section>
+    <section class="main-section" id="Reference">
+      <header>Reference</header>
+      <ul>
+        <li>All the documentation in this page is taken from:</li>
+        <h2 style="margin-left: 7%">William E. Shotts, Jr. A Book</h2>
+      </ul>
+    </section>
+  </main>
+
+  <body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
